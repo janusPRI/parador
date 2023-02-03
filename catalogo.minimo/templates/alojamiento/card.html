@@ -1,0 +1,79 @@
+{% set thisid='/detail.'~article.id %}
+
+<h3 class="card-header narrow-screen parador" style="background-color:{{mybgcolor}};color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('{{thisid}}-narrow-screen','details');return false; ">   
+      {{article.Nombre}} 
+      <span style='color:grey'>{{article.Apellido}}</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:{{mybgcolor}};color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('{{thisid}}-wide-screen','details');return false; ">   
+      {{article.Nombre}} 
+      <span style='color:grey'>{{article.Apellido}}</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+    {%if article.price.split('|')|length >1 %}
+
+<!-- 
+    {%if article.price.split('|')|length >9%}
+    10 pax
+    {%else%}    
+    {%if article.price.split('|')|length >4%}
+    4 pax
+    {%else%}
+    {{article.price.split('|')|length}} pax
+   {%endif%} 
+    {%endif%} 
+  -->
+
+    {%endif%}
+  </span>
+  {%if 'Comodidades' not in article.categories%}
+  <span style="float:right;">
+  {%if article.price.split('|')|length >1 %}
+
+<!--     {%if article.price.split('|')|length >4 %}
+    ${{article.price.split('|')[3]}}
+    {%else%}
+     ${{article.price.split('|')[article.price.split('|')|length-1]}} 
+    {%endif%} 
+ -->
+   ${{article.unitprice}}
+  {%else%}
+
+  ${{article.price}}
+  
+  {%endif%}
+  </span>
+  {%endif%}
+
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="{{article.images.split('|')[0]}}" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('{{parent}}/{{article.id}}-cant');return false;">
+  </div>
+
+{% if 'outofstock' not in article.visibility%}
+  {%if 'Comodidades' not in article.categories%}
+
+  {% if 'variable' in article.type %}
+    {% include 'quiero.variedad.html' %}
+  {%endif%}
+  {% if 'simple' in article.type %}
+    {% if 'Visitas' in article.categories %}
+    PERSONAS:
+    {%endif%}
+    {% include 'quiero.html' %}
+  {%endif%}
+ {%endif%}
+{%else%}
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    AGOTADO
+  </p>
+
+{% endif %}
+  
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    {{article.excerpt|safe}}
+  </p>

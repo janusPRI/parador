@@ -1,0 +1,64 @@
+<!-- ver de poner scrollby en otros botones -->
+
+<a name="first"></a>
+{% for parent in parents.names%}
+{% set mybgcolor = parents.bgcolors[loop.index0] %}
+
+<div id="id-{{parent}}" class="c-parent" style="display:block;">
+  <div class="row" style=' margin:2ex 1ex 0em 0em; padding: 0ex 1em' > 
+  <a name="{{parent}}"></a>
+
+  <div class='myh2'>
+    <div  class='caret parent-caret' id="id-{{parent}}-caret" style='background:{{mybgcolor}};color:black;text-align:center;padding:0.5em' onclick="toggleById('id-{{parent}}-content');return false;">
+    {{parents.long_names[parent].upper() }}
+    </div>    
+  </div>
+  
+  </div>  
+
+
+    <div class='parent-content' id='id-{{parent}}-content' >
+
+        <p style='text-align: center;'>
+    {{parents.mensajes[parent]|safe}}
+  </p>
+    <div class="row " >
+    {% set ns=namespace(oldchild='') %}
+    {% for article in catalog %}	 
+      {% if (parent == article.parent)  %}
+      <!-- and ( article.title not in article.undesired )     -->
+      {% if ns.oldchild != article.child %}
+      {% if ns.oldchild != ''%}
+      </div> <div class="row ">
+      {% endif %}
+      <div class='myh3 caret ' style='background:{{mybgcolor}};padding:0.5em;text-align:center;color:black;' onclick="toggleByClass('c-{{parent}}-{{article.child}}');return false;"> 
+          {{article.child.upper()}}
+      </div>
+
+      {% set ns.oldchild=article.child %}
+
+      {% endif %}
+
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-{{parent}}-{{article.child}} children" style="padding:0.3em">
+      <a name="{{article.id}}"></a>
+      <div class="card h-100 c-{{parent}}-{{article.child}} children" id="id-{{parent}}/{{article.id}}" >
+        {% include xx.subdir~'/card.html' %}
+      </div> 
+      </div>
+      {% endif %}
+    {% endfor %}
+
+    </div> <!-- close row -->
+    </div><!-- close parent-content -->
+</div><!-- close c-parent -->
+{% endfor%}
+
+{#
+
+ 	{% for key,val in product.items() %}
+		{% if key=='categorias' %}
+		{{val}}
+		{% endif %}
+	{% endfor %}
+#}

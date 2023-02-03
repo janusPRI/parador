@@ -1,0 +1,72 @@
+{%if 'Pernoctes' in article.categories%}
+  NOCHES:
+  {% endif%}
+{%if 'Visitas' in article.categories%}
+    DIAS:
+  {% endif%}
+
+  <!-- Quiero uno -->
+  <div class="row quiero-variedad" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:{{mybgcolor}};" onclick="removeFromCart('{{parent}}/{{article.id}}-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="{{parent}}/{{article.id}}-cant" class="cantidad" name="{{parent}}/{{article.id}}" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    
+                <div class="btn quiero" style="background-color:{{mybgcolor}};" onclick="addToCart('{{parent}}/{{article.id}}-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>  
+
+
+PERSONAS:  
+
+
+
+  <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:{{mybgcolor}};" onclick="removeFromCart('{{parent}}/{{article.id}}-var');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="{{parent}}/{{article.id}}-var" class="variedad pasajeros" name="{{parent}}/{{article.id}}" style="width:2em;font-size:1.5em;" value="1" min="1" placeholder="1" form="myform">
+
+    <input type="hidden" id="{{parent}}/{{article.id}}-price" class="price" name="{{parent}}/{{article.id}}" value="{{article.price}}" form="myform">
+
+                <div class="btn quiero" style="background-color:{{mybgcolor}};" onclick="addToCart('{{parent}}/{{article.id}}-var');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+

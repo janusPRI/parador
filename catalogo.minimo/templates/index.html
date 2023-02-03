@@ -1,0 +1,58 @@
+{% extends "base_buttons.html" %}
+
+{% block style%}
+{% include 'buttons.css' %}
+{% endblock style%}
+
+{% block content %}
+<body>
+<a name="top"></a>
+<div class='myrow'>
+    <div class="mycol wrapper sidebar sidebar-left"> 
+    </div>
+
+    <!-- ######################## -->
+    <div class="mycol content" style="min-height:100%">
+
+        <div style="text-align: center">
+        <img src="{{xx.ImagenMostrador}}" alt="" style="width: 100%;max-width:900px;margin-bottom:0px;" >
+        </div>
+
+        <div style="margin:1em"> 
+        <div style="margin:1em 0;text-align:center"> 
+        {% if xx.mensaje.inicial is defined %}
+            {{ xx.mensaje.inicial|safe}}
+        {% else %}
+        <p>(1) Elegí lo que querés.</p>
+        <p>(2) Apretá  <button class='sendCarts' type="submit" id="sendCart">ENVIAR</button>,     así de simple.</p>
+        {%endif%}
+        </div>
+        
+        {% include 'buttons.html' %} 
+
+        </div> <!-- content margin excludes image-->
+    </div><!-- /.content -->   
+    <!-- ######################## -->
+
+
+ <div class="mycol wrapper sidebar sidebar-right " >     
+ {% include '/sidebar-right.html' %}
+</div>
+
+</div>
+
+<div style=" width: 100%;">
+     <!-- include xx.subdir~'/footer.html' %} -->
+     {% include '/footer.html' %}
+</div>
+</body>
+
+<!-- <script> window.onload = printCart(); </script> -->
+
+{% endblock content %}
+
+{% block scripts%}
+
+{% include 'buttons.js' %}
+
+{% endblock scripts %}

@@ -1,0 +1,39 @@
+<!-- <div class="myh2 " > {{xx.parents.name}} </div> -->
+<!-- <div style='text-align: center;margin:2ex 0'>
+{#
+{% include 'buttons.parents.html' %} 
+#}
+</div>
+ -->
+
+{% if xx.pedido is defined and xx.pedido is sameas true %}
+<div class="myh2">
+        {% if xx.articles.pedido is defined %}
+        {{xx.articles.pedido}}
+        {% else%}
+        Pedido
+        {%endif%}
+</div>
+<div class='row' style='margin-bottom:2ex'>
+{% if xx.mensaje is defined %}
+    <div class="col-12">
+    {{ xx.mensaje.pedido|safe}}
+    </div>    
+{%endif%}
+    <div class="col-12">
+        {% include 'pedido.html' %} 
+    </div>
+
+    <div class="col-12">
+       <!-- El costo de envio depende de su localidad -->
+       <!-- Retiro en Janus sin costo de envio -->
+    </div>
+</div>
+{% endif %}
+
+<div style="margin-bottom:4ex;"></div>
+{% include 'links.html' %} 
+
+{#
+{{xx.fecha|safe}}
+#}

@@ -1,0 +1,162 @@
+order,title,id,unitprice,price,excerpt,images,permalink,categories,tagsALL,tags,type,visibility,status,description
+
+1,"Cabin 2 pax",3640,5000,10000|10000,"1 cama doble. <p> Mínimo 2 pax. </p>",https://www.janus.bio/parador/img/sqrCabin2pax.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/CABIN-INTIMISTA-01.jpg,https://www.almacenjanus.bio/producto/cabin-chico/,Pernoctes,,,variable,,publish,"<table>
+  <tr>
+    <th>pax</th>
+    <th>precio en $</th>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>10.000</td>
+  </tr>
+</table> "
+
+
+3,"Dormi 4 pax",3582,4000,16000|16000|16000|16000,"2 camas cucheta (4 plazas en total).
+<p> Mínimo 4 pax. </p>
+",https://www.janus.bio/parador/img/sqrDormi4pax.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/DORMI-FAMILIAR-IMG_5257.jpg,https://www.almacenjanus.bio/producto/dormi-faimiliar/,Pernoctes,,,variable,,publish,"<table>
+  <tr>
+    <th>pax</th>
+    <th>precio en $</th>
+  </tr>
+    <tr>
+    <td>3</td>
+    <td>16.000</td>
+  </tr>
+    <tr>
+    <td>4</td>
+    <td>16.000</td>
+  </tr>
+</table>
+
+Habitación en Planta Alta." 
+
+4,"Dormi 8 pax",3584,4000,4000|8000|12000|16000|20000|24000|28000|32000,"4 camas cuchetas (8 plazas en total).",https://www.janus.bio/parador/img/sqrDormi8pax.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/DORMI-2-IMG_5079.jpg,https://www.almacenjanus.bio/producto/dormi-grupal/,Pernoctes,,,variable,,publish,"<table>
+  <tr>
+    <th>pax</th>
+    <th>precio en $</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>4.000</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>8.000</td>
+  </tr>
+    <tr>
+    <td>3</td>
+    <td>12.000</td>
+  </tr>
+    <tr>
+    <td>4</td>
+    <td>16.000</td>
+  </tr>
+</table>
+
+Habitación en Planta Alta. Ocupación máxima de 8 personas que comparten la habitación según la ocupación comprometida para esa noche.
+"
+
+5,Acampe,3644,2000,2000|4000|6000|8000|10000|12000|14000|16000,"Cada sector cuenta con toma corriente, mesa con bancos, cesto de basura y luminaria.",https://www.janus.bio/parador/img/sqrAcampe.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/1B81E874-62D4-4D4B-B395-E086984AC826.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/457F449F-4DBF-4ED9-8AB8-1E0B8ADC545D-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/623B1EDF-CE2B-49B8-BB3E-A177D09110E6-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/22697942-9E39-406D-9D86-67BADF6123A4-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/1C76AE4B-0169-4501-A781-9680D19AF380-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/E4A10665-AAB5-472B-9EC4-6AEEE4E4B95B-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/Pernocte-11-1024x533-1.jpg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/D06AC29F-0717-4AAA-9ED0-FD5F767BC137-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/BCD03B6D-6A62-4421-920E-490FA1CC3984-scaled.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/127E6411-E4AE-40E1-B5FA-B621C4414215-scaled.jpeg,https://www.almacenjanus.bio/producto/acampe/,Pernoctes,,,variable,,publish,"<table>
+  <tr>
+    <th>pax</th>
+    <th>precio en $</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2.000</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>4.000</td>
+  </tr>
+    <tr>
+    <td>3</td>
+    <td>6.000</td>
+  </tr>
+    <tr>
+    <td>4</td>
+    <td>8.000</td>
+  </tr>
+</table>
+<p>
+No cobramos adicional por Carpa, Casilla o Motorhome.
+</p>
+" 
+
+2,"Cabin 5 pax",3673,5000,15000|15000|15000|20000|25000,"1 cama doble, 1 cucheta y 1 cama simple (5 plazas en total).
+<p> Mínimo 3 pax. </p>",https://www.janus.bio/parador/img/sqrCabin5pax.jpeg|https://www.almacenjanus.bio/wp-content/uploads/2021/03/CABIN-FAMILIAR-PANORAMICA-VENTANA.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Pernoctes,,,variable,,publish,"<table>
+  <tr>
+    <th>pax</th>
+    <th>precio en $</th>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>15.000</td>
+  </tr>
+    <tr>
+    <td>4</td>
+    <td>20.000</td>
+  </tr>
+    <tr>
+    <td>5</td>
+    <td>25.000</td>
+  </tr>
+</table>" 
+
+
+e,"ESTADÍA",,0,1000,"",https://www.janus.bio/parador/img/sqrEstadia.jpeg|http://janus.bio/wp-content/uploads/2019/09/VISITANTES-GUIADAS-PUNTO-ENCUENTRO-03.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Visitantes,,,simple,,publish,""
+
+v,"VISITAS GUIADAS",,0,0,"Sábados 10:30hs",https://www.janus.bio/parador/img/sqrVisitasGuiadas.jpeg|http://janus.bio/wp-content/uploads/2019/09/VISITAS-GUIADAS-PUNTO-ENCUENTRO-03.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Visitantes,,,simple,,publish,""
+
+v,"VISITA GUIADA y tarde libre",,0,300,"Sábados 10:30hs",http://janus.bio/wp-content/uploads/2019/08/ESTADIA-DIURNA-P1620378.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Visitantes,,,simple,,draft,
+
+v,"VISITA GUIADA y merienda",,0,500,"Sábados 10:30hs - La merienda incluye: Fruta, Pan, Dulce, Jugo, Chips de Manzana, Infusión.",http://janus.bio/wp-content/uploads/2019/09/VISITA-GUIADA-PUNTO-DE-ENCUENTRO-04.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Visitantes,,,simple,,draft,
+
+v,"VISITA GUIADA y menú degustación",,0,800,"Sábados 10:30hs",http://janus.bio/wp-content/uploads/2019/08/VISITANTES-HEURTA.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Visitantes,,,simple,,publish,
+
+p,"PARRILLA Y COMEDOR",,0,500,"Compartí con tu familia o amigos una comida en nuestro espacio aural. Te ofrecemos todo lo necesario para que prepares lo que más te gusta.
+",https://www.janus.bio/parador/img/sqrParrilla.jpeg|http://janus.bio/wp-content/uploads/2020/01/ESPACIO-AURAL-IMG_4480.jpg,https://www.almacenjanus.bio/producto/cabin-familiar/,Comidas,,,simple,,draft,
+
+
+d,"Desayuno",,0,400,"Fruta, Pan, Dulce, Jugo, Chips de Manzana, Infusión.",https://www.almacenjanus.bio/wp-content/uploads/2021/07/272EDB65-993B-4E9E-9851-6C00EFC165E7-100x100.jpeg,https://www.almacenjanus.bio/producto/cabin-familiar/,Comidas,,,simple,,publish,
+
+m,"Merienda",,0,400,"Fruta, Pan, Dulce, Jugo, Chips de Manzana, Infusión.",https://www.almacenjanus.bio/wp-content/uploads/2021/07/272EDB65-993B-4E9E-9851-6C00EFC165E7-100x100.jpeg,https://www.almacenjanus.bio/producto/cabin-familiar/,Comidas,,,simple,,publish,
+
+w,"Wifi",,0,0,"",https://www.janus.bio/parador/img/sqrWifi.jpeg,,Comodidades,,,simple,,publish,"Conexión a internet"
+
+h,"Heladera",,0,0,"",https://www.janus.bio/parador/img/sqrHeladera.jpeg,,Comodidades,,,simple,,publish,
+
+m,"MESAS Y BANCOS",,0,0,"",https://www.janus.bio/parador/img/sqrMesas.jpeg,,Comodidades,,,simple,,publish,
+
+c,"CAMA ELÁSTICA",,0,0,"",https://www.janus.bio/parador/img/sqrCamaElastica.jpeg,,Comodidades,,,simple,,publish,
+
+f,"Fogón",,0,0,"",https://www.janus.bio/parador/img/sqrFogon.jpeg,,Comodidades,,,simple,,publish,
+
+b,"2 BAÑOS completos",,0,0,"",https://www.janus.bio/parador/img/sqrBanio.jpeg,,Comodidades,,,simple,,publish,"cada uno hasta 2 personas en simultáneo"
+
+a,"AGUA CALIENTE",,0,0,"",https://www.janus.bio/parador/img/sqrAguaCaliente.jpeg,,Comodidades,,,simple,,publish,"Las 24 horas. En las canillas y para el mate. "
+
+
+l,"LAVADERO",,0,0,"",https://www.janus.bio/parador/img/sqrBanio.jpeg,,Comodidades,,,simple,,publish,
+
+p,"Parrillas",,0,0,"",https://www.janus.bio/parador/img/sqrParrilla.jpeg,,Comodidades,,,simple,,publish,
+
+c,"Canal",,0,0,"",https://www.janus.bio/parador/img/sqrCanal.jpeg,,Comodidades,,,simple,,publish,
+
+c,"Costa río Neuquén",,0,0,"",https://www.janus.bio/parador/img/sqrCosta.jpeg,,Comodidades,,,simple,,publish,
+
+r,"Rincón de Paz",,0,0,"",https://www.janus.bio/parador/img/sqrRinconDePaz.jpeg,,Comodidades,,,simple,,publish,
+
+h,"Hamacas",,0,0,"",https://www.janus.bio/parador/img/sqrHamaca.jpeg,,Comodidades,,,simple,,publish,
+
+s,"Espacio Aural",,0,0,"",https://www.janus.bio/parador/img/sqrAural.jpeg,,Comodidades,,,simple,,publish,
+
+e,"Estacionamiento",,0,0,"",https://www.janus.bio/parador/img/sqrEstacionamiento.jpeg,,Comodidades,,,simple,,publish,
+
+
+f,"Fuente",,0,0,"",https://www.janus.bio/parador/img/sqrFuente.jpeg,,Comodidades,,,simple,,publish,
+
+ge,"Grupos educativos",,0,5000|5000|5000|5000|5000|5000|5000|5000|5000|5000|5500|6000|6500|7000|7500|8000|8500|9000|9500|10000,"Se permite el uso del espacio aural. Ideal para talleres o cursos que necesitan de un espacio de cocina, pizarra o proyector.",http://janus.bio/wp-content/uploads/2020/01/ESPACIO-AURAL-IMG_3883.jpg|http://janus.bio/wp-content/uploads/2020/01/ESPACIO-AURAL-IMG_3835.jpg,https://www.almacenjanus.bio/,Visitantes,,,variable,,draft,"Incluye el uso de las facilidades comunes, uso del proyector, las pizarras y de la cocina dentro del espacio aural. Mínimo 10 personas o el costo equivalente."
+
+ga,"Grupos al aire libre",,0,3000|3000|3000|3000|3000|3000|3000|3000|3000|3000|3300|3600|3900|4200|4500|4800|5100|5400|5700|6000,"Se permite el uso de las instalaciones y servicios comunes. ",http://janus.bio/wp-content/uploads/2019/06/JANUS-PASEO-FAMILIAS.jpg,https://www.almacenjanus.bio/,Visitantes,,,variable,,draft,"Mínimo 10 personas o el costo equivalente."

@@ -1,0 +1,2837 @@
+﻿<!DOCTYPE html>
+    <html lang="en">
+    <head>
+                <meta charset="UTF-8">
+        <title>Parador JANUS</title>
+
+        <!-- Remember to make your webpage responsive by adding viewport meta tag at the head tag of your html document. -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta http-equiv="cache-control" content="no-cache" />
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- CSS only -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+         <!-- CSS only -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+
+<!-- hace unos espacios raros el bootstrap 5 entre los botones parents y los títulos-->
+
+       <!--  <link href="style.css" rel="stylesheet">
+        <script src="index.js" defer></script>
+         -->
+        <link rel="manifest" href="manifest.webmanifest">
+
+<!--     <script src="articles.id.js"></script> -->
+
+
+    <style>
+
+/* Style the caret/arrow */
+.caret {
+  cursor: pointer;
+  user-select: none; 
+  /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.caret::before {
+  content: "\25BC";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+  content: "\25B6";
+  color: white;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/*.caret-down::before {
+  transform: rotate(-90deg);
+}*/
+/* Hide the nested list */
+.nested {
+  /*display: none;*/
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+  /*display: inline-block;*/
+}
+
+.disp-block{  display: block;}
+.disp-none{ display:none; }
+
+
+.myimg{
+width:160px;
+}
+
+
+.search-buttons{
+  overflow:visible;
+  /*max-width: 100%;*/
+  /*max-width:222px;*/
+  white-space: normal;
+}
+
+.wrapper {
+background: #EFEFEF;
+  /*margin: auto;*/
+  /*text-align: center;*/
+  /*position: relative;*/
+  /*-webkit-border-radius: 5px;*/
+  /*-moz-border-radius: 5px;*/
+  /*border-radius: 5px;*/
+  margin-bottom: 1em; 
+  padding-top: 5px;
+  /*z-index: 10;*/
+}
+
+.sidebar {
+  position: fixed;
+      /*    width: 250px;*/
+  /*width: 20%;*/
+    /*font-size: 21px;*/
+  overflow-y: scroll;
+/*    top: 0;
+    bottom: 0;*/
+
+      /*Esto es para que no se pueda mover horizontalmente*/
+  max-width: auto;
+  overflow-x: hidden;
+/*  z-index: 100;*/
+
+  height: 100%;
+}
+.sidebar-right{
+  right: 0; 
+  width: 32%;
+    padding: 0em 3em;
+}
+.sidebar-left{
+left: 0;
+ width: 8%;
+padding: 0em 1em;
+}
+
+.content {
+  position: absolute;
+  width: 60%;
+  left: 8%;       
+    /*padding: 0px 10px;*/
+    /*padding-left: 300px;*/
+/*    margin-left: 18%;
+    margin-right: 18%;*/
+    margin-top:0ex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/*xsscreen-only*/
+/*@media only screen and (max-width: 1200px) {*/
+@media only screen and (max-width: 868px) {
+  .wide-screen {   display:none!important; }
+
+.content,.sidebar {
+  position: relative;
+  width: 100%;
+  left: 0;       
+  padding:0 10px;
+  z-index: 1;
+}
+.wrapper {
+/*  background: #EFEFEF;*/
+  box-shadow: 1px 1px 10px #999;
+  /*!important;*/
+  width:100%;
+}
+
+
+.double-scrol {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 5em;
+  white-space: nowrap
+}
+.double-scrol div {
+  display: inline-block;
+  vertical-align: center;
+}
+
+
+}
+
+/*
+@media only screen and (max-width: 1108px) {
+.myimg{ width:110px;}
+}
+*/
+
+
+/*widescreen-only o h-view; tiene en cuenta el ancho*/
+/*@media only screen and (min-width: 1200px) {*/
+@media only screen and (min-width: 868px) {
+
+.b-parent{  width:10em;}
+
+.narrow-screen{  display:none;}
+
+.double-scrol{  margin-top:1ex;}
+
+}
+
+/*shortscreen-only*/
+@media only screen and (max-height: 700px) {
+.tall-screen{
+  display:none!important; 
+}
+}
+
+@media only screen and (min-height: 500px) {
+.sticky{
+    position: -webkit-sticky!important; /* Safari */
+    position: sticky!important; 
+    top: 0!important;
+}
+}
+
+/*mobile-only, config. petiza */
+@media only screen and (min-height: 868px) {
+
+.mobile-only{  display:none;}
+
+}
+
+/*tallscreen-only*/
+/*desktop-only, config. alta*/
+@media only screen and (max-height: 868px) {
+
+.short-screen{ display:none!important; }
+
+}
+
+@media only screen and (max-height: 68px) and (max-width:08px) {
+
+.desktop-only{  display:none;}
+
+}
+
+.double-scrol::-webkit-scrollbar,.sidebar::-webkit-scrollbar,.content::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+.double-scrol::-webkit-scrollbar-track,.sidebar::-webkit-scrollbar-track,.content::-webkit-scrollbar-track  {
+border: 1px solid rgba(255,153,102,1);
+border-radius: 10px;
+}
+.double-scrol::-webkit-scrollbar-thumb,.sidebar::-webkit-scrollbar-thumb,.content::-webkit-scrollbar-thumb  {
+background: rgba(255,153,102,1);
+border-radius: 10px;
+}
+.double-scrol::-webkit-scrollbar-thumb:hover,.sidebar::-webkit-scrollbar-thumb:hover,.content::-webkit-scrollbar-thumb:hover {
+background: rgba(255,153,102,0.3);
+}
+
+
+
+
+
+
+
+
+
+
+div.scrollmenu {
+  background-color: #333;
+  /*color:white;*/
+  overflow: auto;
+  white-space: nowrap;
+  margin: 1em;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  /*color: white;*/
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  /*background-color: #777;*/
+  background-color: black;
+}
+
+.cantidad,.quiero,.variedad{
+  display: inline-block;vertical-align: -50%;
+}
+.quiero{
+  /*border-radius: 1em;*/
+   font-size:1.2em
+}
+
+.sendCarts{
+  background-color: rgba(255,153,102,1)!important;
+
+  /*janus Green rgba(103,149,40,1)!important*/
+  /*color:red;*/
+}
+
+button[type="submit"]{
+    /* change these properties to whatever you want */
+    background-color: #777;
+    color: #fff;
+    border-radius: 10px;
+}
+/*.w3-button{
+  margin:1em;padding:2em 1em;border-radius: 1em;width:auto;border: 2px solid;outline:0;  font-family: Arial;font-size:1.5em;
+}*/
+
+
+.my-container{
+  border-radius: 1em;
+  /*width:auto;*/
+  border: 2px solid;outline:0;  
+  font-family: Arial;font-size:0.7em;
+  font-weight: 800; letter-spacing:0.08em;
+}
+.w3-container{
+  margin:0.3em;padding:0.5em 0.5em;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+
+.w3-red,.w3-button:hover{
+  /*color:#fff!important;*/
+/*background-color:rgba(255,153,102,1)!important;*/
+/*background-color:white!important;*/
+/*font-size:0.9em;*/
+box-shadow: 8px 8px 10px #111
+/*#999;*/
+}
+
+.c-child{background-color: rgba(191,43,8,0.1); padding:1em 0 ; margin:0;}
+
+.c-article{
+  /*background-color: white; */
+  /*rgba(255,153,102,0.3);*/
+  padding:0.3em; margin:1em 0;
+}
+.b-article{
+  font-weight: bolder; letter-spacing:0.09em;
+/*border-radius: 1em;*/
+padding: 0em; 
+margin:-1em;
+/*padding-left:2em;  */
+width:auto; 
+/*color:rgba(255,153,102,1);*/
+font-size:1.6em;
+
+color:#fff;
+/*background-color:rgba(255,153,102,1)*/
+}
+
+
+button {
+-webkit-appearance: none !important;
+-moz-appearance: none !important ;
+appearance: none !important ;
+}
+
+p-button {
+   -webkit-appearance: none !important;
+-moz-appearance: none !important ;
+appearance: none !important ;
+}
+
+button[type="submit"]{
+-webkit-appearance: none !important;
+-moz-appearance: none !important ;
+appearance: none !important ;
+}
+
+
+</style>    </head>
+    <body>
+<a name="top"></a>
+<div class='myrow'>
+    <div class="mycol wrapper sidebar sidebar-left"> 
+    </div>
+
+    <!-- ######################## -->
+    <div class="mycol content" style="min-height:100%">
+
+        <div style="text-align: center">
+        <img src="https://www.almacenjanus.bio/wp-content/uploads/2021/03/PARADOR-2019-FACE-DIA_DIA.jpg" alt="" style="width: 100%;max-width:900px;margin-bottom:0px;" >
+        </div>
+
+        <div style="margin:1em"> 
+        <div style="margin:1em 0;text-align:center"> 
+                    
+<p>
+Inspirados en la tradición viajera característica de las extensas rutas argentinas, 
+queremos hacer un homenaje a la figura del clásico parador de ruta, 
+ese oasis sin tiempo ni espacio en el que podemos encontrar reposo, sosiego, alimento y energía para continuar en el camino.
+</p>
+
+                </div>
+        
+        <!-- ver de poner scrollby en otros botones -->
+
+<a name="first"></a>
+
+<div id="id-pernoctes" class="c-parent" style="display:block;">
+  <div class="row" style=' margin:2ex 1ex 0em 0em; padding: 0ex 1em' > 
+  <a name="pernoctes"></a>
+
+  <div class='myh2'>
+    <div  class='caret parent-caret' id="id-pernoctes-caret" style='background:LightSalmon;color:black;text-align:center;padding:0.5em' onclick="toggleById('id-pernoctes-content');return false;">
+    PERNOCTES
+    </div>    
+  </div>
+  
+  </div>  
+
+
+    <div class='parent-content' id='id-pernoctes-content' >
+
+        <p style='text-align: center;'>
+    
+<p style='font-weight:900;'>
+PRECIOS POR NOCHE POR PERSONA
+</p>
+<p>
+Habitaciones sin baño privado (vea nuestras comodidades). 
+</p>
+
+  </p>
+    <div class="row " >
+        	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-pernoctes- children" style="padding:0.3em">
+      <a name="Cabin 2 pax"></a>
+      <div class="card h-100 c-pernoctes- children" id="id-pernoctes/Cabin 2 pax" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Cabin 2 pax-narrow-screen','details');return false; ">   
+       CABIN 
+      <span style='color:grey'>2 pax</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Cabin 2 pax-wide-screen','details');return false; ">   
+       CABIN 
+      <span style='color:grey'>2 pax</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+    
+<!-- 
+        
+        2 pax
+    
+     
+  -->
+
+      </span>
+    <span style="float:right;">
+  
+<!--          $10000 
+     
+ -->
+   $5000
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrCabin2pax.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('pernoctes/Cabin 2 pax-cant');return false;">
+  </div>
+
+  
+        NOCHES:
+  
+  <!-- Quiero uno -->
+  <div class="row quiero-variedad" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Cabin 2 pax-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Cabin 2 pax-cant" class="cantidad" name="pernoctes/Cabin 2 pax" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Cabin 2 pax-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>  
+
+
+PERSONAS:  
+
+
+
+  <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Cabin 2 pax-var');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Cabin 2 pax-var" class="variedad pasajeros" name="pernoctes/Cabin 2 pax" style="width:2em;font-size:1.5em;" value="1" min="1" placeholder="1" form="myform">
+
+    <input type="hidden" id="pernoctes/Cabin 2 pax-price" class="price" name="pernoctes/Cabin 2 pax" value="10000|10000" form="myform">
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Cabin 2 pax-var');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+       
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    1 cama doble. <p> Mínimo 2 pax. </p>
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-pernoctes- children" style="padding:0.3em">
+      <a name="Cabin 5 pax"></a>
+      <div class="card h-100 c-pernoctes- children" id="id-pernoctes/Cabin 5 pax" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Cabin 5 pax-narrow-screen','details');return false; ">   
+       CABIN 
+      <span style='color:grey'>5 pax</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Cabin 5 pax-wide-screen','details');return false; ">   
+       CABIN 
+      <span style='color:grey'>5 pax</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+    
+<!-- 
+        
+        4 pax
+     
+     
+  -->
+
+      </span>
+    <span style="float:right;">
+  
+<!--         $20000
+     
+ -->
+   $5000
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrCabin5pax.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('pernoctes/Cabin 5 pax-cant');return false;">
+  </div>
+
+  
+        NOCHES:
+  
+  <!-- Quiero uno -->
+  <div class="row quiero-variedad" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Cabin 5 pax-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Cabin 5 pax-cant" class="cantidad" name="pernoctes/Cabin 5 pax" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Cabin 5 pax-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>  
+
+
+PERSONAS:  
+
+
+
+  <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Cabin 5 pax-var');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Cabin 5 pax-var" class="variedad pasajeros" name="pernoctes/Cabin 5 pax" style="width:2em;font-size:1.5em;" value="1" min="1" placeholder="1" form="myform">
+
+    <input type="hidden" id="pernoctes/Cabin 5 pax-price" class="price" name="pernoctes/Cabin 5 pax" value="15000|15000|15000|20000|25000" form="myform">
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Cabin 5 pax-var');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+       
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    1 cama doble, 1 cucheta y 1 cama simple (5 plazas en total).
+<p> Mínimo 3 pax. </p>
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-pernoctes- children" style="padding:0.3em">
+      <a name="Dormi 4 pax"></a>
+      <div class="card h-100 c-pernoctes- children" id="id-pernoctes/Dormi 4 pax" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Dormi 4 pax-narrow-screen','details');return false; ">   
+       DORMI 
+      <span style='color:grey'>4 pax</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Dormi 4 pax-wide-screen','details');return false; ">   
+       DORMI 
+      <span style='color:grey'>4 pax</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+    
+<!-- 
+        
+        4 pax
+    
+     
+  -->
+
+      </span>
+    <span style="float:right;">
+  
+<!--          $16000 
+     
+ -->
+   $4000
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrDormi4pax.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('pernoctes/Dormi 4 pax-cant');return false;">
+  </div>
+
+  
+        NOCHES:
+  
+  <!-- Quiero uno -->
+  <div class="row quiero-variedad" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Dormi 4 pax-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Dormi 4 pax-cant" class="cantidad" name="pernoctes/Dormi 4 pax" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Dormi 4 pax-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>  
+
+
+PERSONAS:  
+
+
+
+  <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Dormi 4 pax-var');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Dormi 4 pax-var" class="variedad pasajeros" name="pernoctes/Dormi 4 pax" style="width:2em;font-size:1.5em;" value="1" min="1" placeholder="1" form="myform">
+
+    <input type="hidden" id="pernoctes/Dormi 4 pax-price" class="price" name="pernoctes/Dormi 4 pax" value="16000|16000|16000|16000" form="myform">
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Dormi 4 pax-var');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+       
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    2 camas cucheta (4 plazas en total).
+<p> Mínimo 4 pax. </p>
+
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-pernoctes- children" style="padding:0.3em">
+      <a name="Dormi 8 pax"></a>
+      <div class="card h-100 c-pernoctes- children" id="id-pernoctes/Dormi 8 pax" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Dormi 8 pax-narrow-screen','details');return false; ">   
+       DORMI 
+      <span style='color:grey'>8 pax</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Dormi 8 pax-wide-screen','details');return false; ">   
+       DORMI 
+      <span style='color:grey'>8 pax</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+    
+<!-- 
+        
+        4 pax
+     
+     
+  -->
+
+      </span>
+    <span style="float:right;">
+  
+<!--         $16000
+     
+ -->
+   $4000
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrDormi8pax.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('pernoctes/Dormi 8 pax-cant');return false;">
+  </div>
+
+  
+        NOCHES:
+  
+  <!-- Quiero uno -->
+  <div class="row quiero-variedad" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Dormi 8 pax-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Dormi 8 pax-cant" class="cantidad" name="pernoctes/Dormi 8 pax" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Dormi 8 pax-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>  
+
+
+PERSONAS:  
+
+
+
+  <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Dormi 8 pax-var');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Dormi 8 pax-var" class="variedad pasajeros" name="pernoctes/Dormi 8 pax" style="width:2em;font-size:1.5em;" value="1" min="1" placeholder="1" form="myform">
+
+    <input type="hidden" id="pernoctes/Dormi 8 pax-price" class="price" name="pernoctes/Dormi 8 pax" value="4000|8000|12000|16000|20000|24000|28000|32000" form="myform">
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Dormi 8 pax-var');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+       
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    4 camas cuchetas (8 plazas en total).
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-pernoctes- children" style="padding:0.3em">
+      <a name="Acampe"></a>
+      <div class="card h-100 c-pernoctes- children" id="id-pernoctes/Acampe" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Acampe-narrow-screen','details');return false; ">   
+       ACAMPE 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSalmon;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Acampe-wide-screen','details');return false; ">   
+       ACAMPE 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+    
+<!-- 
+        
+        4 pax
+     
+     
+  -->
+
+      </span>
+    <span style="float:right;">
+  
+<!--         $8000
+     
+ -->
+   $2000
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrAcampe.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('pernoctes/Acampe-cant');return false;">
+  </div>
+
+  
+        NOCHES:
+  
+  <!-- Quiero uno -->
+  <div class="row quiero-variedad" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Acampe-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Acampe-cant" class="cantidad" name="pernoctes/Acampe" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Acampe-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>  
+
+
+PERSONAS:  
+
+
+
+  <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="removeFromCart('pernoctes/Acampe-var');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="pernoctes/Acampe-var" class="variedad pasajeros" name="pernoctes/Acampe" style="width:2em;font-size:1.5em;" value="1" min="1" placeholder="1" form="myform">
+
+    <input type="hidden" id="pernoctes/Acampe-price" class="price" name="pernoctes/Acampe" value="2000|4000|6000|8000|10000|12000|14000|16000" form="myform">
+
+                <div class="btn quiero" style="background-color:LightSalmon;" onclick="addToCart('pernoctes/Acampe-var');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+       
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    Cada sector cuenta con toma corriente, mesa con bancos, cesto de basura y luminaria.
+  </p>      </div> 
+      </div>
+          	 
+          	 
+          
+    </div> <!-- close row -->
+    </div><!-- close parent-content -->
+</div><!-- close c-parent -->
+
+<div id="id-visitantes" class="c-parent" style="display:block;">
+  <div class="row" style=' margin:2ex 1ex 0em 0em; padding: 0ex 1em' > 
+  <a name="visitantes"></a>
+
+  <div class='myh2'>
+    <div  class='caret parent-caret' id="id-visitantes-caret" style='background:DarkSeaGreen;color:black;text-align:center;padding:0.5em' onclick="toggleById('id-visitantes-content');return false;">
+    VISITANTES
+    </div>    
+  </div>
+  
+  </div>  
+
+
+    <div class='parent-content' id='id-visitantes-content' >
+
+        <p style='text-align: center;'>
+    
+  </p>
+    <div class="row " >
+        	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-visitantes- children" style="padding:0.3em">
+      <a name="ESTADÍA"></a>
+      <div class="card h-100 c-visitantes- children" id="id-visitantes/ESTADÍA" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:DarkSeaGreen;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.ESTADÍA-narrow-screen','details');return false; ">   
+       ESTADÍA 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:DarkSeaGreen;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.ESTADÍA-wide-screen','details');return false; ">   
+       ESTADÍA 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+    <span style="float:right;">
+  
+  $1000
+  
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrEstadia.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('visitantes/ESTADÍA-cant');return false;">
+  </div>
+
+  
+              <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:DarkSeaGreen;" onclick="removeFromCart('visitantes/ESTADÍA-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="visitantes/ESTADÍA-cant" class="cantidad" name="visitantes/ESTADÍA" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    <input type="hidden" id="visitantes/ESTADÍA-price" class="price" name="visitantes/ESTADÍA" value="1000" form="myform">
+
+                <div class="btn quiero" style="background-color:DarkSeaGreen;" onclick="addToCart('visitantes/ESTADÍA-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+     
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-visitantes- children" style="padding:0.3em">
+      <a name="VISITAS GUIADAS"></a>
+      <div class="card h-100 c-visitantes- children" id="id-visitantes/VISITAS GUIADAS" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:DarkSeaGreen;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.VISITAS GUIADAS-narrow-screen','details');return false; ">   
+       VISITAS GUIADAS 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:DarkSeaGreen;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.VISITAS GUIADAS-wide-screen','details');return false; ">   
+       VISITAS GUIADAS 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+    <span style="float:right;">
+  
+  $0
+  
+    </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrVisitasGuiadas.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('visitantes/VISITAS GUIADAS-cant');return false;">
+  </div>
+
+  
+              <!-- Quiero uno -->
+  <div class="row" style="padding:1em 0;text-align:center">
+  <!-- <div class="col-12 col-sm mobile-only">  Cantidad:  </div> -->
+  <div class="col mx-auto">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group">
+              <!-- <div class="cantidad desktop-only"> Cantidad: </div> -->
+
+                <div class="btn quiero" style="background-color:DarkSeaGreen;" onclick="removeFromCart('visitantes/VISITAS GUIADAS-cant');return false;">
+                    <i class="fa fa-minus "></i>
+                </div>
+                <!-- <div style="display: inline-block;">2016</div> -->
+ <input type="number" id="visitantes/VISITAS GUIADAS-cant" class="cantidad" name="visitantes/VISITAS GUIADAS" style="width:2em;font-size:1.5em;" value="0" min="0" placeholder="0" form="myform">
+    <input type="hidden" id="visitantes/VISITAS GUIADAS-price" class="price" name="visitantes/VISITAS GUIADAS" value="0" form="myform">
+
+                <div class="btn quiero" style="background-color:DarkSeaGreen;" onclick="addToCart('visitantes/VISITAS GUIADAS-cant');return false;">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+  </div>
+
+
+
+     
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    Sábados 10:30hs
+  </p>      </div> 
+      </div>
+          
+    </div> <!-- close row -->
+    </div><!-- close parent-content -->
+</div><!-- close c-parent -->
+
+<div id="id-comodidades" class="c-parent" style="display:block;">
+  <div class="row" style=' margin:2ex 1ex 0em 0em; padding: 0ex 1em' > 
+  <a name="comodidades"></a>
+
+  <div class='myh2'>
+    <div  class='caret parent-caret' id="id-comodidades-caret" style='background:LightSteelBlue;color:black;text-align:center;padding:0.5em' onclick="toggleById('id-comodidades-content');return false;">
+    COMODIDADES
+    </div>    
+  </div>
+  
+  </div>  
+
+
+    <div class='parent-content' id='id-comodidades-content' >
+
+        <p style='text-align: center;'>
+    
+  </p>
+    <div class="row " >
+        	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="AGUA CALIENTE"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/AGUA CALIENTE" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.AGUA CALIENTE-narrow-screen','details');return false; ">   
+       AGUA CALIENTE 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.AGUA CALIENTE-wide-screen','details');return false; ">   
+       AGUA CALIENTE 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrAguaCaliente.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/AGUA CALIENTE-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="2 BAÑOS completos"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/2 BAÑOS completos" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.2 BAÑOS completos-narrow-screen','details');return false; ">   
+       2 BAÑOS 
+      <span style='color:grey'>completos</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.2 BAÑOS completos-wide-screen','details');return false; ">   
+       2 BAÑOS 
+      <span style='color:grey'>completos</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrBanio.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/2 BAÑOS completos-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="CAMA ELÁSTICA"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/CAMA ELÁSTICA" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.CAMA ELÁSTICA-narrow-screen','details');return false; ">   
+       CAMA ELÁSTICA 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.CAMA ELÁSTICA-wide-screen','details');return false; ">   
+       CAMA ELÁSTICA 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrCamaElastica.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/CAMA ELÁSTICA-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Canal"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Canal" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Canal-narrow-screen','details');return false; ">   
+       CANAL 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Canal-wide-screen','details');return false; ">   
+       CANAL 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrCanal.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Canal-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Costa río Neuquén"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Costa río Neuquén" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Costa río Neuquén-narrow-screen','details');return false; ">   
+       COSTA 
+      <span style='color:grey'>río Neuquén</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Costa río Neuquén-wide-screen','details');return false; ">   
+       COSTA 
+      <span style='color:grey'>río Neuquén</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrCosta.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Costa río Neuquén-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Estacionamiento"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Estacionamiento" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Estacionamiento-narrow-screen','details');return false; ">   
+       ESTACIONAMIENTO 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Estacionamiento-wide-screen','details');return false; ">   
+       ESTACIONAMIENTO 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrEstacionamiento.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Estacionamiento-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Fogón"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Fogón" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Fogón-narrow-screen','details');return false; ">   
+       FOGÓN 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Fogón-wide-screen','details');return false; ">   
+       FOGÓN 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrFogon.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Fogón-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Fuente"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Fuente" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Fuente-narrow-screen','details');return false; ">   
+       FUENTE 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Fuente-wide-screen','details');return false; ">   
+       FUENTE 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrFuente.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Fuente-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Hamacas"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Hamacas" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Hamacas-narrow-screen','details');return false; ">   
+       HAMACAS 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Hamacas-wide-screen','details');return false; ">   
+       HAMACAS 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrHamaca.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Hamacas-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Heladera"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Heladera" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Heladera-narrow-screen','details');return false; ">   
+       HELADERA 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Heladera-wide-screen','details');return false; ">   
+       HELADERA 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrHeladera.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Heladera-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="LAVADERO"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/LAVADERO" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.LAVADERO-narrow-screen','details');return false; ">   
+       LAVADERO 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.LAVADERO-wide-screen','details');return false; ">   
+       LAVADERO 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrBanio.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/LAVADERO-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="MESAS Y BANCOS"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/MESAS Y BANCOS" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.MESAS Y BANCOS-narrow-screen','details');return false; ">   
+       MESAS Y BANCOS 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.MESAS Y BANCOS-wide-screen','details');return false; ">   
+       MESAS Y BANCOS 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrMesas.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/MESAS Y BANCOS-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Parrillas"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Parrillas" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Parrillas-narrow-screen','details');return false; ">   
+       PARRILLAS 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Parrillas-wide-screen','details');return false; ">   
+       PARRILLAS 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrParrilla.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Parrillas-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Rincón de Paz"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Rincón de Paz" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Rincón de Paz-narrow-screen','details');return false; ">   
+       RINCÓN 
+      <span style='color:grey'>de Paz</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Rincón de Paz-wide-screen','details');return false; ">   
+       RINCÓN 
+      <span style='color:grey'>de Paz</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrRinconDePaz.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Rincón de Paz-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Espacio Aural"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Espacio Aural" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Espacio Aural-narrow-screen','details');return false; ">   
+       ESPACIO 
+      <span style='color:grey'>Aural</span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Espacio Aural-wide-screen','details');return false; ">   
+       ESPACIO 
+      <span style='color:grey'>Aural</span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrAural.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Espacio Aural-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+            <!-- and ( article.title not in article.undesired )     -->
+      
+      <!-- col-6 col-sm-4 col-md-4 col-lg-3  -->
+      <div class="col-6 col-sm-4 col-md-4 col-lg-4 col-xl-4 c-comodidades- children" style="padding:0.3em">
+      <a name="Wifi"></a>
+      <div class="card h-100 c-comodidades- children" id="id-comodidades/Wifi" >
+        
+<h3 class="card-header narrow-screen parador" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Wifi-narrow-screen','details');return false; ">   
+       WIFI 
+      <span style='color:grey'></span>
+  </h3> 
+
+  <h3 class="card-header wide-screen" style="background-color:LightSteelBlue;color:black; min-height:6ex ;cursor: pointer;" onclick="expandCard('/detail.Wifi-wide-screen','details');return false; ">   
+       WIFI 
+      <span style='color:grey'></span>
+  </h3> 
+
+<div style="margin-bottom:-0.8em;padding:0em 0.4em;">
+  <span style="float:left;">
+      </span>
+  
+</div>
+
+
+  <div style="text-align: center">
+  <img class="rounded-circle myimg" src="https://www.janus.bio/parador/img/sqrWifi.jpeg" alt="" style="height:auto;margin-bottom:0px;  cursor: pointer;" onclick="addToCart('comodidades/Wifi-cant');return false;">
+  </div>
+
+    
+  <p style="padding:0em 1em; text-align:center;font-size:smaller">
+    
+  </p>      </div> 
+      </div>
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          	 
+          
+    </div> <!-- close row -->
+    </div><!-- close parent-content -->
+</div><!-- close c-parent -->
+
+ 
+
+        </div> <!-- content margin excludes image-->
+    </div><!-- /.content -->   
+    <!-- ######################## -->
+
+
+ <div class="mycol wrapper sidebar sidebar-right " >     
+ <!-- <div class="myh2 " > Categorias </div> -->
+<!-- <div style='text-align: center;margin:2ex 0'>
+</div>
+ -->
+
+<div class="myh2">
+                Reserva
+        </div>
+<div class='row' style='margin-bottom:2ex'>
+    <div class="col-12">
+     
+<label for="fecha-inicio">Fecha:</label>
+
+<input type="date" id="fecha-inicio" name="trip-start"
+       value="2023-02-01"
+       min="2023-02-01" max="2024-03-01" form="myform">
+
+
+    </div>    
+    <div class="col-12">
+            <form id="myform" name="myform" action="#"> 
+<!--   
+  <script>  textAreaAdjust(document.getElementById('carrito') );</script>
+  id="carrito"
+ -->  
+    <textarea class="js-test-textarea pedido"  style="width: 100%; height:100%;padding:1em 0em; max-width:700px;max-height:300px;line-height: 2ex;" >
+  
+    </textarea>
+
+    </form>
+
+
+         <div style='max-width:700px;'>
+          <span style="float:left;">
+          <button type="submit" class='resetCarts'>Resetear</button>
+          </span>  
+          <span style="float:right;">
+           <button type="submit" class='sendCarts' id="sendCart2">ENVIAR</button>
+            </span>
+        </div>
+
+<!-- </div> -->
+
+<!-- El costo de envio depende de su localidad -->
+<!-- </div> -->
+ <!-- closes pedido de compra -->
+<!-- </div> -->
+
+
+ 
+    </div>
+
+    <div class="col-12">
+       <!-- El costo de envio depende de su localidad -->
+       <!-- Retiro en Janus sin costo de envio -->
+    </div>
+</div>
+
+<div style="margin-bottom:4ex;"></div>
+<!-- <section id="extras" class="body" style="width:100% "> -->
+                
+                        <!-- <div class="bg-light"> -->
+                    <div class="myh2 bg-light-1">Links</div>
+                <!-- </div> -->
+                    <!-- <ul> -->
+                                            <!-- <li> -->
+                        	<p style="padding:0ex ; text-align: left"><a href="https://g.page/JanusBio?share" target="_blank" rel="noopener noreferrer">Ubicación: RN 151 ~ km 24,5 ~ Clte Cordero ~ Río Negro ~ ARG</a></p>
+                        <hr style='border:1px solid rgb(200,200,200)'>
+                        <!-- </li> -->
+                                            <!-- <li> -->
+                        	<p style="padding:0ex ; text-align: left"><a href="http://janus.bio/" target="_blank" rel="noopener noreferrer">Janus Proyecto Rural Integrador</a></p>
+                        <hr style='border:1px solid rgb(200,200,200)'>
+                        <!-- </li> -->
+                                            <!-- <li> -->
+                        	<p style="padding:0ex ; text-align: left"><a href="https://almacenjanus.bio" target="_blank" rel="noopener noreferrer">Almacén Janus</a></p>
+                        <hr style='border:1px solid rgb(200,200,200)'>
+                        <!-- </li> -->
+                                            <!-- <li> -->
+                        	<p style="padding:0ex ; text-align: left"><a href="https://wa.me/542995711049" target="_blank" rel="noopener noreferrer">WhatsApp: 299 5711049</a></p>
+                        <hr style='border:1px solid rgb(200,200,200)'>
+                        <!-- </li> -->
+                                            <!-- <li> -->
+                        	<p style="padding:0ex ; text-align: left"><a href="mailto: jorgearagon@janus.bio" target="_blank" rel="noopener noreferrer">e-mail: jorgearagon @ janus.bio</a></p>
+                        <hr style='border:1px solid rgb(200,200,200)'>
+                        <!-- </li> -->
+                                        <!-- </ul> -->
+
+                        <!-- </section> -->
+        <!-- /#extras --> 
+
+</div>
+
+</div>
+
+<div style=" width: 100%;">
+     <!-- include xx.subdir~'/footer.html' %} -->
+     
+  <style>
+  .footer {
+    position: fixed;    left: 0;    bottom: 0;
+    width: 100%;overflow:auto; 
+    white-space:nowrap;   background-color: black;    color: white;    text-align: right;    margin-right:2rem; font-size:0.8em;
+  }
+
+.li-horizontal{
+  /*float: left;*/
+ margin-left: -0.2em}
+  </style>
+
+<p style="margin-top:6ex">
+</p>
+
+<div class='footer' >
+  <a >
+  </a>
+</div>
+
+ 
+
+
+<!-- <footer>text from footer.</footer> --></div>
+</body>
+
+<!-- <script> window.onload = printCart(); </script> -->
+
+
+    
+    <style>
+table, th, td {
+  border:1px solid black;
+  width:100%;
+}
+html {
+  font-size: 62.5%; 
+}
+body {
+  font-size: 1.8em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 800;
+  font-family: Arial;
+  color: rgba(132,132,132,1); 
+  /*#222; */
+}
+
+.bg-light {
+  /*background: #EFEFEF;*/
+    background-color:#333;
+}
+
+.bg-light-1 {
+  background-color:beige;
+  /*rgba(191,43,8,0.1);*/
+}
+
+.title-color{
+  color:rgba(255,153,102,1);
+  /* janus green rgba(103,149,40,1);*/
+/**/
+}
+
+/*mobile-only 1200px*/
+@media only screen and (max-width: 868px) {
+body {
+  background-color: rgba(39,39,39,1);
+}
+}
+
+@media only screen and (min-width: 868px) {
+body {
+background-color:beige;
+/*rgba(60, 179, 113,0.1)*/
+/*(191,43,8,0.1)*/
+
+}
+}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  /*Esto es para que no se pueda mover horizontalmente*/
+  max-width: 100%;
+  overflow-x: hidden;
+  /*font-family: Arial;*/
+}
+:root {
+    --colRemarkRow:rgba(255,153,102,1);
+    --colBgRow:rgba(255,153,102,0.7);
+
+    /*
+      NarajaJanus:
+        hex: #ff9966;
+        rgba(255,153,102,1)
+    
+      Verde Janus: 
+        hex: #679528
+        rgba(103,149,40,1);
+        */
+    /*
+      rojo
+    rgba(191,43,8,0.3);*/
+    
+    /*
+      verde
+    rgba(91,143,81,0.2);*/
+
+    --colBgRemark:rgba(255,153,102,1);
+    /*rgba(191,43,8,0.7);*/
+
+    --colBg4-1:rgba(191,43,8,0.7);
+    --colBg4-2:rgba(191,43,8,0.5);   
+    --colBg4-3:rgba(191,43,8,0.3);
+    --colBg4-4:rgba(191,43,8,0.1);
+}
+
+
+
+
+a:link, a:visited {
+    color:rgba(255,153,102,1);
+    /*#0c6090;*/
+    text-decoration: none;
+}
+
+a:hover, a:active {
+    color: #0c6090;
+    /*#c06050;*/
+    text-decoration: none;
+}
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+h2 {
+  margin-top:2ex;
+  padding: 0ex 1em;
+  font-size: 1.7em;
+  font-weight: 800; 
+  letter-spacing:0.08em;
+  background-color:rgba(191,43,8,0.1);
+  width:100%;
+}
+
+.myh2 {
+  margin-top:2ex;
+  margin-right:-12em;
+  /*padding: 0ex 1em;*/
+  font-size: 1.7em;
+  font-weight: 800; 
+  letter-spacing:0.08em;
+  background-color:beige;
+  /* medio rojo: rgba(191,43,8,0.1);*/
+  width:100%;
+  text-align:left;
+}
+
+.myh3 {
+  margin-top:3ex;
+  font-size: 1.2em;
+  font-weight: 700; 
+  letter-spacing:0.08em;
+  width:100%;
+  text-align:left;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+
+[hidden] {
+  display: none;
+}
+</style>
+
+    
+<script language="Javascript" >
+var current_parent='todos'
+var current_child='all'
+
+// window.addEventListener("hashchange", function() { scrollBy(0, 250) })
+
+function sendCart(text) {
+    printCart();
+
+  var parador = document.getElementsByClassName("parador");
+  if(parador){
+  var fecha  = document.getElementById("fecha-inicio").value;
+  fecha="\n* Fecha: "+fecha+"\n"
+  }else{
+    fecha=""
+  }
+
+    var element = document.createElement('a');
+    var texto=encodeURIComponent("Reserva en Janus\n"+ fecha+ text);
+    var http="http://wa.me/"+ 542995711049 +"?text=" + texto
+    element.setAttribute('href',http );
+    element.setAttribute('target',"_blank");
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+}
+
+// {
+// Start file download.
+// document.getElementById("sendCart").addEventListener("click", function(){
+// var carritos=document.getElementsByClassName("sendCarts")
+// for (var i = 0; i < carritos.length ;i++) {
+//     carritos[i].addEventListener("click", function(){
+//     // Generate download of hello.txt file with some content
+//     var text =createCart()
+//     var oldWord="<br "
+//     var reg = new RegExp("<br />", "g");
+//     var newtext=text.replace(reg, "\r\n");  
+//     sendCart(newtext);
+//     }, false);
+// }
+// }
+
+var userSelection = document.getElementsByClassName('sendCarts');
+
+for(var i = 0; i < userSelection.length; i++) {
+  (function(index) {
+    userSelection[index].addEventListener("click", function() {
+
+    var text =createCart()
+    var oldWord="<br "
+    var reg = new RegExp("<br />", "g");
+    var newtext=text.replace(reg, "\r\n");  
+    sendCart(newtext);
+     },false)
+  })(i);
+}
+
+var userSelection = document.getElementsByClassName('resetCarts');
+
+for(var i = 0; i < userSelection.length; i++) {
+  (function(index) {
+    userSelection[index].addEventListener("click", resetCart,false)
+  })(i);
+}
+
+var userSelection = document.getElementsByClassName('searchOptions');
+
+for(var i = 0; i < userSelection.length; i++) {
+  (function(index) {
+    userSelection[index].addEventListener("click", showAll('b-parent','c-parent'),false)
+  })(i);
+}
+
+function showId(myid) {
+  current_parent=myid
+  // console.log('showid: '+current_parent)
+  let x0 = document.getElementById(myid);
+  x0.style.display = "block";
+}
+
+function showCarretById(myid) {
+  showId(myid+'-content')
+  caretDownById(myid+'-caret')
+}
+
+function caretDownById(myid) {
+  let x = document.getElementById(myid);
+    x.className = x.className.replace(" caret-down", "");
+    x.className = x.className.replace(" caret", "");
+    x.className += " caret";
+}
+
+
+function caretUp(myclass) {
+  let i, x = document.getElementsByClassName(myclass);
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" caret-down", "");
+    x[i].className = x[i].className.replace(" caret", "");
+    x[i].className += " caret-down";
+  }
+}
+
+function caretDown(myclass) {
+  let i, x = document.getElementsByClassName(myclass);
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" caret-down", "");
+    x[i].className = x[i].className.replace(" caret", "");
+    x[i].className += " caret";
+  }
+}
+
+function showClass(myclass) {
+  let i, x = document.getElementsByClassName(myclass);
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "block";
+  }
+}
+
+function toggleByClass(myclass) {
+  let i, x = document.getElementsByClassName(myclass);
+
+  for (i = 0; i < x.length; i++) {
+    if (x[i].style.display === "none") {
+      x[i].style.display = "block";
+    } else {
+      x[i].style.display = "none";
+    }
+  }
+}
+
+function toggleById(myid) {
+  let x0 = document.getElementById(myid);
+  if (x0.style.display === "none") {
+    x0.style.display = "block";
+  } else {
+    x0.style.display = "none";
+  }
+}
+
+function showAll(mylinks,myclass) {
+
+  current_parent='todos'
+
+  showClass(myclass);
+
+  // saco el sombreado de los botones
+  let i,tablinks = document.getElementsByClassName(mylinks);
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+
+  caretDown('parent-caret');
+  showClass('parent-content');
+
+}
+
+
+
+  showClass('parent-content');
+  toggleByClass('parent-content');
+  caretUp('parent-caret');
+
+function expandCard(myid,myclass) {
+
+  var x0 = document.getElementById(myid);
+  if (x0.style.display === "none") {
+    x0.style.display = "block";
+  } else {
+    x0.style.display = "none";
+  }
+
+  x = document.getElementsByClassName(myclass);
+
+  for (i = 0; i < x.length; i++) {
+    if(x[i]!=x0){
+    x[i].style.display = "none";
+    }
+  }
+}
+
+function openParents(evt, myid,mylinks,myclass) {
+  
+  current_parent=myid
+
+  var i, x, x0,tablinks;
+  x0=document.getElementById(myid);
+  x = document.getElementsByClassName(myclass);
+
+  var showingall=1;
+
+  for (i = 0; i < x.length; i++) {
+
+    if (x[i].style.display === "none") {
+      showingall=0;
+    }
+
+    if(x[i]!=x0){
+    x[i].style.display = "none";
+    }
+  }
+
+
+  tablinks = document.getElementsByClassName(mylinks);
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+
+  if(showingall===0){
+  if (x0.style.display === "none") {
+    x0.style.display = "block";
+    evt.currentTarget.className += " w3-red";
+  } else {
+    x0.style.display = "none";
+  }
+  }else{
+    evt.currentTarget.className += " w3-red";
+  }
+
+  showCarretById(myid)
+  // document.getElementById(myid).style.display = "block";
+}
+
+function addToCart(idNAME){
+  var myelement = document.getElementById(idNAME);
+  // var cantidad = myelement.value
+  // console.log(cantidad)
+  myelement.value++
+// var cantidad = myelement.value
+  // console.log(cantidad)
+  printCart();
+}
+
+function removeFromCart(idNAME){
+  var myelement = document.getElementById(idNAME);
+  if(myelement.value>0){
+  myelement.value--;
+  printCart();
+  }
+}
+
+function createCart(){
+// var x = document.querySelectorAll(".intro");
+// document.getElementById("demo").innerHTML = 
+// 'The first paragraph (index 0) with class="intro": ' + x[0].innerHTML;  
+  var myclass;
+  myclass = document.getElementsByClassName("cantidad");
+//  console.log(myclass)
+  const now = new Date();
+  var month =now.getUTCMonth()+1
+  var text = "";//now.getUTCFullYear()+"-"+month+"-"+now.getUTCDate()+"\n\n";
+  var preciototal=0,cantidadtotal=0;
+  for (var i = 0; i < myclass.length ;i++) {    
+    var cantidad=myclass[i].value; //encodeURIComponent(myclass[i].value)
+    var name=myclass[i].name
+    var myid=name+"-price"
+
+    var myid_var=name+"-var"
+    var aux=name.split("/");
+    // console.log(name);
+    // console.log(aux);
+    var productname=aux[aux.length-1];
+
+    // console.log(productname);
+    myarticle = document.getElementById(myid);
+
+
+//    text += x.elements[i].value + "<br>";
+  if(cantidad>0){
+    var precio_vec=myarticle.value.split("|"); //encodeURIComponent(myarticle.value)
+    // console.log(precio_vec)
+
+    var price_index=0;
+
+    myvar = document.getElementById(myid_var);
+    if(myvar){
+    if(myvar.value>precio_vec.length){
+      myvar.value=precio_vec.length
+    }
+    price_index=myvar.value-1;
+    }
+    var precio=precio_vec[price_index];
+
+    cantidadtotal=cantidadtotal+parseInt(cantidad);
+    preciototal+=(cantidad*precio);
+    //text += "("+ cantidad + ") "+ name + ": ["+ cantidad + " x $"+ precio +"] <br />";
+    // text +=  "* "+ name + ": ["+ cantidad + " x $"+ precio +"] \n";
+     text +=  "* "+ productname + ": ["+ cantidad + " x $"+ precio +"] \n";
+  }
+  
+  }
+
+  var visitantes = document.getElementsByClassName("visitantes");
+  var visitan=0
+  for (var i = 0; i < visitantes.length ;i++) {    
+    var cantidad=visitantes[i].value;
+    var name=visitantes[i].name
+    var myvar=name+"-var"
+    my_visitante = document.getElementById(myvar);
+    visitan+=parseInt(my_visitante.value);
+  }
+  if(visitan>0){
+      text += "\nCant. de visitantes: "+visitan
+  }
+  
+  pasajeros = document.getElementsByClassName("pasajeros");
+  var duermen=0
+  for (var i = 0; i < pasajeros.length ;i++) {    
+    var cantidad=pasajeros[i].value;
+    var name=pasajeros[i].name
+    var myid=name+"-cant"
+    my_noche = document.getElementById(myid);
+
+    if(my_noche.value>=1){
+      var myvar=name+"-var"
+      my_pasajero = document.getElementById(myvar);
+      duermen+=parseInt(my_pasajero.value);
+    }
+  }
+  if(duermen>0){
+      text += "\nCant. de personas: "+duermen
+  }
+
+
+
+  parador = document.getElementsByClassName("parador");
+  var costodeenvio=0;
+  if(parador){
+  // text += "\nCant. de productos: "+cantidadtotal
+
+  // if(cantidadtotal>0){  
+  //   if(xx.COSTODEENVIO>0){
+  //   // text+="\n";
+  //   costodeenvio=600  
+  //   preciototal+=costodeenvio
+  //   text += "\nCosto de envio: $"+costodeenvio+"\n"
+  //   }
+  // }
+
+  // var fecha  = document.getElementById("fecha-inicio").value;
+  // fecha="\nFecha llegada: "+fecha+"\n"
+  }else{
+    // fecha=""
+  }
+    // return text += "<br /><br /> Importe total: $"+ preciototal+" <br /><br />";
+    return text += "\nImporte total: $"+ preciototal+"\n";
+}
+
+function printCart(){
+  var text=createCart()
+  // document.getElementById("carrito").innerHTML = text;
+  // document.getElementById("carrito").value = text;
+  // textAreaAdjust(document.getElementById('carrito') );
+
+  var pedidos=document.getElementsByClassName("pedido")
+  for (var i = 0; i < pedidos.length ;i++) { 
+    pedidos[i].value = text;
+   textAreaAdjust(pedidos[i]);
+  }
+  
+  
+}
+
+
+window.addEventListener('load', printCart() )
+//window.onload=printCart;
+
+function resetCart(){
+  // var text=createCart()
+  // // document.getElementById("carrito").innerHTML = text;
+  // document.getElementById("carrito").value = "";
+  // textAreaAdjust(document.getElementById('carrito') );
+  var myclass,i;
+  myclass = document.getElementsByClassName("cantidad");
+  for (i = 0; i < myclass.length ;i++) { 
+    myclass[i].value="0"
+    myclass[i].placeholder="0"
+  }
+    myclass = document.getElementsByClassName("pasajeros");
+  for (i = 0; i < myclass.length ;i++) { 
+    myclass[i].value="1"
+    myclass[i].placeholder="1"
+  }
+
+  var text=createCart()
+  
+
+  // document.getElementById("carrito").value = text;
+  // textAreaAdjust(document.getElementById('carrito') );
+  var pedidos=document.getElementsByClassName("pedido")
+  for (var i = 0; i < pedidos.length ;i++) { 
+    pedidos[i].value = text;
+   textAreaAdjust(pedidos[i]);
+  }
+}
+
+// $(document).ready(function(){
+
+//   textAreaAdjust(document.getElementById('carrito') );
+// });
+
+function textAreaAdjust(o) {
+  o.style.height = "1px";
+  o.style.height = (o.scrollHeight)+"px";
+  // o.style.width = "1px";
+  // o.style.width = (o.scrollWidth)+"px";
+}
+
+
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    // this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+} 
+
+
+var close = document.getElementsByClassName("close-details");
+
+for (let i = 0; i < close.length; i++) {
+  close[i].addEventListener("click", function() {
+    let pedidos = document.getElementsByClassName("details");
+      for (let j = 0; j < pedidos.length; j++) {
+        pedidos[j].style.display = "none";
+    }
+  });
+} 
+</script>
+
+</html>

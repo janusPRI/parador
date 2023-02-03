@@ -1,0 +1,337 @@
+<style>
+
+/* Style the caret/arrow */
+.caret {
+  cursor: pointer;
+  user-select: none; 
+  /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.caret::before {
+  content: "\25BC";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+  content: "\25B6";
+  color: white;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+/*.caret-down::before {
+  transform: rotate(-90deg);
+}*/
+/* Hide the nested list */
+.nested {
+  /*display: none;*/
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+  /*display: inline-block;*/
+}
+
+.disp-block{  display: block;}
+.disp-none{ display:none; }
+
+
+.myimg{
+width:160px;
+}
+
+
+.search-buttons{
+  overflow:visible;
+  /*max-width: 100%;*/
+  /*max-width:222px;*/
+  white-space: normal;
+}
+
+.wrapper {
+background: #EFEFEF;
+  /*margin: auto;*/
+  /*text-align: center;*/
+  /*position: relative;*/
+  /*-webkit-border-radius: 5px;*/
+  /*-moz-border-radius: 5px;*/
+  /*border-radius: 5px;*/
+  margin-bottom: 1em; 
+  padding-top: 5px;
+  /*z-index: 10;*/
+}
+
+.sidebar {
+  position: fixed;
+      /*    width: 250px;*/
+  /*width: 20%;*/
+    /*font-size: 21px;*/
+  overflow-y: scroll;
+/*    top: 0;
+    bottom: 0;*/
+
+      /*Esto es para que no se pueda mover horizontalmente*/
+  max-width: auto;
+  overflow-x: hidden;
+/*  z-index: 100;*/
+
+  height: 100%;
+}
+.sidebar-right{
+  right: 0; 
+  width: 32%;
+    padding: 0em 3em;
+}
+.sidebar-left{
+left: 0;
+ width: 8%;
+padding: 0em 1em;
+}
+
+.content {
+  position: absolute;
+  width: 60%;
+  left: 8%;       
+    /*padding: 0px 10px;*/
+    /*padding-left: 300px;*/
+/*    margin-left: 18%;
+    margin-right: 18%;*/
+    margin-top:0ex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/*xsscreen-only*/
+/*@media only screen and (max-width: 1200px) {*/
+@media only screen and (max-width: 868px) {
+  .wide-screen {   display:none!important; }
+
+.content,.sidebar {
+  position: relative;
+  width: 100%;
+  left: 0;       
+  padding:0 10px;
+  z-index: 1;
+}
+.wrapper {
+/*  background: #EFEFEF;*/
+  box-shadow: 1px 1px 10px #999;
+  /*!important;*/
+  width:100%;
+}
+
+
+.double-scrol {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 5em;
+  white-space: nowrap
+}
+.double-scrol div {
+  display: inline-block;
+  vertical-align: center;
+}
+
+
+}
+
+/*
+@media only screen and (max-width: 1108px) {
+.myimg{ width:110px;}
+}
+*/
+
+
+/*widescreen-only o h-view; tiene en cuenta el ancho*/
+/*@media only screen and (min-width: 1200px) {*/
+@media only screen and (min-width: 868px) {
+
+.b-parent{  width:10em;}
+
+.narrow-screen{  display:none;}
+
+.double-scrol{  margin-top:1ex;}
+
+}
+
+/*shortscreen-only*/
+@media only screen and (max-height: 700px) {
+.tall-screen{
+  display:none!important; 
+}
+}
+
+@media only screen and (min-height: 500px) {
+.sticky{
+    position: -webkit-sticky!important; /* Safari */
+    position: sticky!important; 
+    top: 0!important;
+}
+}
+
+/*mobile-only, config. petiza */
+@media only screen and (min-height: 868px) {
+
+.mobile-only{  display:none;}
+
+}
+
+/*tallscreen-only*/
+/*desktop-only, config. alta*/
+@media only screen and (max-height: 868px) {
+
+.short-screen{ display:none!important; }
+
+}
+
+@media only screen and (max-height: 68px) and (max-width:08px) {
+
+.desktop-only{  display:none;}
+
+}
+
+.double-scrol::-webkit-scrollbar,.sidebar::-webkit-scrollbar,.content::-webkit-scrollbar {
+width: 12px;
+height: 12px;
+}
+.double-scrol::-webkit-scrollbar-track,.sidebar::-webkit-scrollbar-track,.content::-webkit-scrollbar-track  {
+border: 1px solid rgba(255,153,102,1);
+border-radius: 10px;
+}
+.double-scrol::-webkit-scrollbar-thumb,.sidebar::-webkit-scrollbar-thumb,.content::-webkit-scrollbar-thumb  {
+background: rgba(255,153,102,1);
+border-radius: 10px;
+}
+.double-scrol::-webkit-scrollbar-thumb:hover,.sidebar::-webkit-scrollbar-thumb:hover,.content::-webkit-scrollbar-thumb:hover {
+background: rgba(255,153,102,0.3);
+}
+
+
+
+
+
+
+
+
+
+
+div.scrollmenu {
+  background-color: #333;
+  /*color:white;*/
+  overflow: auto;
+  white-space: nowrap;
+  margin: 1em;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  /*color: white;*/
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
+  /*background-color: #777;*/
+  background-color: black;
+}
+
+.cantidad,.quiero,.variedad{
+  display: inline-block;vertical-align: -50%;
+}
+.quiero{
+  /*border-radius: 1em;*/
+   font-size:1.2em
+}
+
+.sendCarts{
+  background-color: rgba(255,153,102,1)!important;
+
+  /*janus Green rgba(103,149,40,1)!important*/
+  /*color:red;*/
+}
+
+button[type="submit"]{
+    /* change these properties to whatever you want */
+    background-color: #777;
+    color: #fff;
+    border-radius: 10px;
+}
+/*.w3-button{
+  margin:1em;padding:2em 1em;border-radius: 1em;width:auto;border: 2px solid;outline:0;  font-family: Arial;font-size:1.5em;
+}*/
+
+
+.my-container{
+  border-radius: 1em;
+  /*width:auto;*/
+  border: 2px solid;outline:0;  
+  font-family: Arial;font-size:0.7em;
+  font-weight: 800; letter-spacing:0.08em;
+}
+.w3-container{
+  margin:0.3em;padding:0.5em 0.5em;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+
+.w3-red,.w3-button:hover{
+  /*color:#fff!important;*/
+/*background-color:rgba(255,153,102,1)!important;*/
+/*background-color:white!important;*/
+/*font-size:0.9em;*/
+box-shadow: 8px 8px 10px #111
+/*#999;*/
+}
+
+.c-child{background-color: rgba(191,43,8,0.1); padding:1em 0 ; margin:0;}
+
+.c-article{
+  /*background-color: white; */
+  /*rgba(255,153,102,0.3);*/
+  padding:0.3em; margin:1em 0;
+}
+.b-article{
+  font-weight: bolder; letter-spacing:0.09em;
+/*border-radius: 1em;*/
+padding: 0em; 
+margin:-1em;
+/*padding-left:2em;  */
+width:auto; 
+/*color:rgba(255,153,102,1);*/
+font-size:1.6em;
+
+color:#fff;
+/*background-color:rgba(255,153,102,1)*/
+}
+
+
+button {
+-webkit-appearance: none !important;
+-moz-appearance: none !important ;
+appearance: none !important ;
+}
+
+p-button {
+   -webkit-appearance: none !important;
+-moz-appearance: none !important ;
+appearance: none !important ;
+}
+
+button[type="submit"]{
+-webkit-appearance: none !important;
+-moz-appearance: none !important ;
+appearance: none !important ;
+}
+
+
+</style>

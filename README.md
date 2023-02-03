@@ -1,11 +1,13 @@
 # parador
 catalogo html básico para elegir alojamiento utilizando python y enviando el pedido a whatsapp
 
-/janus.parador
+## /janus.parador
 contiene los datos específico de este catálogo
 
-/catalogo.minimo
+## /catalogo.minimo
 contiene los templates en jinja2 y los códigos en python, los cuales se pueden usar para otro catálogo
+
+## Run
 
 En terminal:
 parado en /janus.parador/src

@@ -167,47 +167,6 @@ function expandCard(myid,myclass) {
   }
 }
 
-function openParents(evt, myid,mylinks,myclass) {
-  
-  current_parent=myid
-
-  var i, x, x0,tablinks;
-  x0=document.getElementById(myid);
-  x = document.getElementsByClassName(myclass);
-
-  var showingall=1;
-
-  for (i = 0; i < x.length; i++) {
-
-    if (x[i].style.display === "none") {
-      showingall=0;
-    }
-
-    if(x[i]!=x0){
-    x[i].style.display = "none";
-    }
-  }
-
-
-  tablinks = document.getElementsByClassName(mylinks);
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-
-  if(showingall===0){
-  if (x0.style.display === "none") {
-    x0.style.display = "block";
-    evt.currentTarget.className += " w3-red";
-  } else {
-    x0.style.display = "none";
-  }
-  }else{
-    evt.currentTarget.className += " w3-red";
-  }
-
-  showCarretById(myid)
-  // document.getElementById(myid).style.display = "block";
-}
 
 function addToCart(idNAME){
   var myelement = document.getElementById(idNAME);
